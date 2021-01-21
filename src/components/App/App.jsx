@@ -34,8 +34,8 @@ function App() {
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
       <nav><Link to="/pizza">pizza---</Link><Link to="/order">order---</Link><Link to="/checkout">checkout---</Link><Link to="/admin">admin</Link></nav>
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
+      {/*<img src='images/pizza_photo.png' />
+      <p>Pizza is great.</p>*/}
       <Route path="/" exact component={PizzaList} />
       <Route path="/pizza" component={PizzaList} />
       <Route path="/order" component={CustomerForm} />
