@@ -1,5 +1,6 @@
 ## ORDER - SELECT YOUR PIZZA
     [ ] GET Request from pizza table
+        -set up redux
     [ ] Pizza List Component
         - map of pizzas
     [ ] Pizza Item Component
