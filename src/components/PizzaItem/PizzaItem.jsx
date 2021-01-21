@@ -1,11 +1,18 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 
 const PizzaItem = ({pizza}) => {
 
+    const dispatch = useDispatch()
     const [isAdded, setIsAdded] = useState(false)
 
     const toggleCartStatus = () => {
+        if (isAdded === 'true') {
+            dispatch({ type: 'ADD_TO_ORDER', payload: pizza})
+        } else if (isAdded === 'false') {
+            dispatch({ type: 'REM_FROM_ORDER', payload: pizza})
+        }
         setIsAdded(!isAdded)
     }
 
