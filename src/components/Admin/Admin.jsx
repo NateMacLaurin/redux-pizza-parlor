@@ -1,5 +1,4 @@
 import {useHistory} from 'react-router-dom';
-import { prependOnceListener } from '../../../../server/modules/pool';
 
 function Admin (){
 
