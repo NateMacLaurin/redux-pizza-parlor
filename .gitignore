@@ -22,5 +22,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .eslintcache
+
+/server/modules/pool.js
+
 package-lock.json
 package.json
