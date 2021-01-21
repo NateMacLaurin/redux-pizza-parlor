@@ -6,8 +6,26 @@ import PizzaList from '../PizzaList/PizzaList.jsx';
 import CustomerForm from '../PizzaList/CustomerForm.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
 import Admin from '../Admin/Admin.jsx';
+import {useEffect} from 'react'
+import {useDispatch} from 'react-redux'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => getPizzas(), [])
+
+  const getPizzas = () => {
+    axios
+    .get('/api/pizza')
+    .then((response) => {
+      dispatch({ type: 'SET_PIZZA', payload: response.data})
+    })
+    .catch((err) => {
+      alert('error in getPizzas')
+      console.log(err)
+    })
+  }
 
   return (
     <Router>
