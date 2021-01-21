@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux'
 
 function CustomerForm(params) {
+
+    const dispatch = useDispatch();
+
     const [name, setName ] = useState('')
     const [address, setAddress ] = useState('')
     const [city, setCity ] = useState('')
@@ -8,8 +12,21 @@ function CustomerForm(params) {
 
 
 
-    const submitInfo =() => {
+    const submitInfo = event => {
+        event.preventDefault()
         console.log('Customer info submitted');
+
+        const action = {
+            type: 'CUSTOMER_INFO',
+            payload: {
+                name : name,
+                address : address,
+                city : city,
+                zip : zip
+            }}
+
+        dispatch(action)
+
     }
 
     return (
