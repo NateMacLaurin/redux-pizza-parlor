@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/server/modules/pool.js
 
 # testing
 /coverage
@@ -23,5 +24,6 @@ yarn-error.log*
 .eslintcache
 
 /server/modules/pool.js
+
 package-lock.json
 package.json
