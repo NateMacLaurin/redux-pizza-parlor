@@ -75,6 +75,8 @@ function CustomerForm(params) {
                 value={zip}
                 />
             </div>
+            <br/>
+            <button type="submit">Submit Info</button>
         </form>
         <button onClick={handleNext}>NEXT</button>
         </>

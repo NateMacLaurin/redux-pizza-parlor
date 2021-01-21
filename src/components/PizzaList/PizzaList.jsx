@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 const PizzaList = () => {
 
+
     const pizzas = useSelector(store => store.pizzaReducer)
     const history = useHistory()
 
