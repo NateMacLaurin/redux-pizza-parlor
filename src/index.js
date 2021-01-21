@@ -35,7 +35,7 @@ const orderReducer = (state = [], action) => {
             return [...state, action.payload];
         case 'REM_FROM_ORDER':
             //filter function
-            return state.filter(pizza => pizza.id !== action.payload);
+            return state.filter(pizza => pizza.id !== action.payload.id);
         case 'CHECKOUT':
             return [];
         default:
