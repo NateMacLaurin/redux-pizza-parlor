@@ -14,4 +14,4 @@ const PizzaList = () => {
     )
 }
 
-export default PizzList
+export default PizzaList
