@@ -12,7 +12,16 @@ import {useDispatch, useSelector} from 'react-redux'
 function App() {
 
   const dispatch = useDispatch()
-  const cartTotal = useSelector(store => store.totalReducer)
+  const cart = useSelector(store => store.orderReducer)
+
+  const getCartTotal = () => {
+    let totalPrice = 0;
+      for(let pizza of cart){
+        totalPrice += Number(pizza.price);
+      }
+      console.log('TotalPrice:', totalPrice);
+    return totalPrice;
+  }
 
   useEffect(() => getPizzas(), [])
 
@@ -33,7 +42,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
-        <div className='cartTotal'>${cartTotal}</div>
+        <div className='cartTotal'>${getCartTotal()}</div>
       </header>
       <nav><Link to="/pizza">pizza---</Link><Link to="/order">order---</Link><Link to="/checkout">checkout---</Link><Link to="/admin">admin</Link></nav>
       {/*<img src='images/pizza_photo.png' />
