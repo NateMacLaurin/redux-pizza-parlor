@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 function CustomerForm(params) {
 
     const dispatch = useDispatch();
+    const history = useHistory()
 
     const [name, setName ] = useState('')
     const [address, setAddress ] = useState('')
@@ -29,7 +31,12 @@ function CustomerForm(params) {
 
     }
 
+    const handleNext = () => {
+        history.push('/checkout')
+    }
+
     return (
+        <>
         <form onSubmit={submitInfo} className="customerForm">
 
             <h3>Step 2: Customer Info</h3>
@@ -71,6 +78,8 @@ function CustomerForm(params) {
             <br/>
             <button type="submit">Submit Info</button>
         </form>
+        <button onClick={handleNext}>NEXT</button>
+        </>
     )
 }
 

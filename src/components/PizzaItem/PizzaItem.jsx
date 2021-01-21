@@ -1,6 +1,13 @@
+import { useState } from 'react'
+
 
 const PizzaItem = ({pizza}) => {
 
+    const [isAdded, setIsAdded] = useState(false)
+
+    const toggleCartStatus = () => {
+        setIsAdded(!isAdded)
+    }
 
     return (
         <div className="pizzaItemContainer">
@@ -10,7 +17,11 @@ const PizzaItem = ({pizza}) => {
                 <p>{pizza.description}</p>
                 <p>{pizza.price}</p>
             </div>
-            <button>ADD</button>
+            {isAdded ? 
+                <button onClick={toggleCartStatus}>REMOVE</button> : 
+                <button onClick={toggleCartStatus}>ADD</button>}
+            
+            
         </div>
     )
 }
