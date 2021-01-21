@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux'
 const PizzaList = () => {
 
     const pizzas = useSelector(store => store.pizzaReducer)
-
+    console.log(pizzas);
     return(
         <div className="pizzaList">
-            {Object.keys(pizzas).map((pizza) => (
+            {pizzas.map((pizza) => (
                 <PizzaItem key={pizza.id} pizza={pizza}/>
             ))}
         </div>

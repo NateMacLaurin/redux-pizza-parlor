@@ -1,12 +1,12 @@
 ## ORDER - SELECT YOUR PIZZA
-    [ ] GET Request from pizza table / Setup redux container
-    [ ] Pizza List Component
+    [x] GET Request from pizza table / Setup redux container
+    [x] Pizza List Component
         - map of pizzas
     [ ] Pizza Item Component
-        - img
-        - description
-        - price
-        - add button
+        <!-- - img -->
+        <!-- - description -->
+        <!-- - price -->
+        <!-- - add button -->
         - remove (conditionally rendered)
     [ ] Cart Total (in header)
     [ ] Next Button (routes to CustomerInfo Component)
@@ -14,10 +14,10 @@
 ## ORDER - CUSTOMER INFO
     [ ] Form
         [ ] customer info
-            - name
-            - street address
-            - city
-            - zip
+            <!-- - name -->
+            <!-- - street address -->
+            <!-- - city -->
+            <!-- - zip -->
             - type 
                 - pickup
                     - conditionally render just name
@@ -36,8 +36,8 @@
     [ ] Redirect to confirmation page with home button
 
 ## ADMIN - TOTAL ORDERS
-[ ] Route to /admin (not listed in navigation)
-[ ] GET request from orders table
+[x] Route to /admin (not listed in navigation)
+[x] GET request from orders table
 [ ] Display in a table:
     - Name
     - Time Order Placed

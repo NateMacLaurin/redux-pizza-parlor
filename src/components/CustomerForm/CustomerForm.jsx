@@ -62,7 +62,7 @@ function CustomerForm(params) {
             <br/>
             <div>
                 <input 
-                type="text" 
+                type="number" 
                 placeholder="Zip Code" 
                 onChange={(event) => setZip(event.target.value)}
                 value={zip}
