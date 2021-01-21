@@ -1,8 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import {useEffect} from 'react'
+import {useDispatch} from 'react-redux'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  const getPizzas = () => {
+    axios
+    .get('/api/pizza')
+    .then((response) => {
+      dispatch({ type: 'SET_PIZZA', payload: response.data})
+    })
+    .catch((err) => {
+      alert('error in getPizzas')
+      console.log(err)
+    })
+  }
 
   return (
     <div className='App'>
