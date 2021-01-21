@@ -28,16 +28,18 @@ const adminReducer = (state = [], action) => {
     return state;
 }
 
-const totalReducer = (state = 0, action) => {
+//payload is the pizza object, logic is add/remove
+const orderReducer = (state = [], action) => {
     switch(action.type){
-        case 'ADD_TO_TOTAL':
-            return state + action.payload;
-        case 'REM_FROM_TOTAL':
-            return state - action.payload;
-        case 'RESET':
-            return 0;
+        case 'ADD_TO_ORDER':
+            return [...state, action.payload];
+        case 'REM_FROM_ORDER':
+            //filter function
+            return state.filter(pizza => pizza.id !== action.payload.id);
+        case 'CHECKOUT':
+            return [];
         default:
-            return 0;
+            return [];
     }
 }
 
@@ -46,7 +48,7 @@ const reduxStore = createStore(
         pizzaReducer,
         customerReducer,
         adminReducer,
-        totalReducer
+        orderReducer
     }),
     applyMiddleware(logger)
 );
