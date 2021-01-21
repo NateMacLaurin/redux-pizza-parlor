@@ -7,7 +7,12 @@ import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
 const pizzaReducer = (state = {}, action) => {
-    return state;
+    switch(action.type){
+        case 'SET_PIZZA':
+            return action.payload;
+        default:
+            return state;
+    }
 }
 
 const customerReducer = (state = {}, action) => {
