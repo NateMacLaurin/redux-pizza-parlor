@@ -1,7 +1,8 @@
 import PizzaItem from '../PizzaItem/PizzaItem'
-import { useSelector } from 'react-redux'
+import {useSelector} from 'react-redux'
 
 const PizzaList = () => {
+
 
     const pizzas = useSelector(store => store.pizzaReducer)
     console.log(pizzas);
