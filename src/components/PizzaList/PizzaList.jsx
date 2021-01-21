@@ -7,7 +7,7 @@ const PizzaList = () => {
 
     return(
         <div className="pizzaList">
-            {pizzas.map((pizza) => (
+            {Object.keys(pizzas).map((pizza) => (
                 <PizzaItem key={pizza.id} pizza={pizza}/>
             ))}
         </div>
