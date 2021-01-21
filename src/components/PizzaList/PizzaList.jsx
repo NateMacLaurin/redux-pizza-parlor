@@ -13,3 +13,5 @@ const PizzaList = () => {
         </div>
     )
 }
+
+export default PizzList
