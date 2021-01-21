@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom';
 import PizzaList from '../PizzaList/PizzaList.jsx';
-import CustomerForm from '../PizzaList/CustomerForm.jsx';
+import CustomerForm from '../CustomerForm/CustomerForm.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
 import Admin from '../Admin/Admin.jsx';
 import {useEffect} from 'react'
