@@ -8,6 +8,8 @@ function App() {
 
   const dispatch = useDispatch()
 
+  useEffect(() => getPizzas(), [])
+
   const getPizzas = () => {
     axios
     .get('/api/pizza')
