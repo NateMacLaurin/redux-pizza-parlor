@@ -31,7 +31,7 @@ function CustomerForm(params) {
         }
 
         dispatch(action)
-        history.push('/checkout')
+        history.push('/checkout');
     }
 
     return (
