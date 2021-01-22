@@ -14,13 +14,14 @@ const Checkout = () => {
     const pizzaOrder = useSelector(store => store.pizzaReducer)
 
     const customer = useSelector(store => store.customerReducer)
-    console.log(customer);
+    
 
     return (
         <>
             <h3>Welcome to Checkout Page</h3>
             <button onClick={handleReturn}>FLEE YOU FOOLS</button>
 
+        
             <div className="customerInfo">
                 <ul>
                     <li>{customer[0].name}</li>

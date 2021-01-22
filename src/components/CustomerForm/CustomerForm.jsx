@@ -14,7 +14,7 @@ function CustomerForm(params) {
 
 
 
-    const submitInfo = event => {
+    const handleNext = event => {
         event.preventDefault()
         console.log('Customer info submitted');
 
@@ -28,20 +28,17 @@ function CustomerForm(params) {
             }}
 
         dispatch(action)
-
-    }
-
-    const handleNext = () => {
         history.push('/checkout')
     }
 
     return (
         <>
-        <form onSubmit={submitInfo} className="customerForm">
+        <form onSubmit={handleNext} className="customerForm">
 
             <h3>Step 2: Customer Info</h3>
             <div>
                 <input 
+                required
                 type="text" 
                 placeholder="Name" 
                 onChange={(event) => setName(event.target.value)}
@@ -76,9 +73,9 @@ function CustomerForm(params) {
                 />
             </div>
             <br/>
-            <button type="submit">Submit Info</button>
+            <button className="formBtn" onSubmit={handleNext}>NEXT</button>
         </form>
-        <button onClick={handleNext}>NEXT</button>
+        
         </>
     )
 }

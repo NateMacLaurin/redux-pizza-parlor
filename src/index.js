@@ -18,7 +18,7 @@ const pizzaReducer = (state = [], action) => {
 const customerReducer = (state = [], action) => {
     switch (action.type) {
         case 'CUSTOMER_INFO':
-            return [...state, action.payload]
+            return [action.payload]
         default:
             return state;
     }
