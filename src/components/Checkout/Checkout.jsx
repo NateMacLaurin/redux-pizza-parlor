@@ -15,6 +15,7 @@ const Checkout = () => {
     
     const customer = useSelector(store => store.customerReducer)
     
+    
 
     return (
         <>
