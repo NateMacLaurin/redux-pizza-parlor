@@ -1,7 +1,8 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios';
 
-const Checkout = () => {
+const Checkout = ({getCartTotal, cart}) => {
 
     const history = useHistory();
     const handleReturn = () => {
@@ -14,13 +15,31 @@ const Checkout = () => {
     const pizzaOrder = useSelector(store => store.orderReducer)
     
     const customer = useSelector(store => store.customerReducer)
+
+    const handleCheckout = () => {
     
-    
+    axios.post('/api/order', {
+            customer_name: customer[0].name,
+            street_address: customer[0].address,
+            city: customer[0].city,
+            zip: customer[0].zip,
+            type: customer[0].type,
+            total: 12.99,
+            pizzas: []      
+        })
+        .then((response) => {
+            console.log('Order info submitted. Redirecting to main page.');
+            history.push('/');
+        }).catch((err) => {
+            alert((`ERROR on POST: ${err}`));
+            console.log(`ERROR on POST: ${err}`);
+        })
+    }
 
     return (
         <>
             <h3>Welcome to Checkout Page</h3>
-            <button onClick={handleReturn}>FLEE YOU FOOLS</button>
+            <button onClick={handleCheckout}>Checkout!</button>
 
         
             <div className="customerInfo">
