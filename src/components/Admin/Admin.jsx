@@ -9,7 +9,7 @@ function Admin (){
     useEffect(() => getOrders(), [])
 
     // const orders = (useSelector(store => store.adminReducer))
-    const [ orders, setOrders ] = useState('')
+    const [ orders, setOrders ] = useState([])
     const getOrders = (event) => {
         console.log('Getting orders');
 
@@ -41,16 +41,16 @@ function Admin (){
                 </tr>
             </thead>
             <tbody>
-                {/* {orders.map((order, i) => {
+                {orders.map((order, i) => {
                     return (
                         <tr key={i}>
-                            <td>{order.name}</td>
-                            <td>{order.timePlaced}</td>
+                            <td>{order.customer_name}</td>
+                            <td>{order.time}</td>
                             <td>{order.type}</td>
-                            <td>{order.cost}</td>
+                            <td>{order.total}</td>
                         </tr>
                     )
-                })} */}
+                })}
             </tbody>
         </table>
         <button onClick={handleReturn}>FLEE YOU FOOLS</button>
