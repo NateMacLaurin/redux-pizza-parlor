@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 function CustomerForm(params) {
 
@@ -80,7 +81,7 @@ function CustomerForm(params) {
                     />
                 </div>
                 <br />
-                <button className="formBtn" onSubmit={handleNext}>NEXT</button>
+                <Button variant='contained' color='primary' onClick={handleNext}>NEXT</Button>
             </form>
 
         </>

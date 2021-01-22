@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux'
+import Button from '@material-ui/core/Button'
 
 const Checkout = () => {
 
@@ -19,8 +20,6 @@ const Checkout = () => {
     return (
         <>
             <h3>Welcome to Checkout Page</h3>
-            <button onClick={handleReturn}>FLEE YOU FOOLS</button>
-
         
             <div className="customerInfo">
                 <ul>
@@ -42,6 +41,7 @@ const Checkout = () => {
                         <tr key={pizza.id}><td>{pizza.name}</td><td>{pizza.price}</td></tr>)}
                 </tbody>
             </table>
+            <Button variant='contained' color='primary' onClick={handleReturn}>CHECKOUT</Button>
         </>
     )
 }
