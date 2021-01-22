@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const Checkout = () => {
 
+    const dispatch = useDispatch()
+
     const history = useHistory();
     const handleReturn = () => {
         console.log(`Returning to Order Page 1:`);
@@ -30,6 +32,7 @@ const Checkout = () => {
         .then((response) => {
             console.log('Order info submitted. Redirecting to main page.');
             history.push('/');
+            dispatch({ type: 'CHECKOUT'})
         }).catch((err) => {
             alert((`ERROR on POST: ${err}`));
             console.log(`ERROR on POST: ${err}`);
@@ -60,7 +63,7 @@ const Checkout = () => {
                         <tr key={pizza.id}><td>{pizza.name}</td><td>{pizza.price}</td></tr>)}
                 </tbody>
             </table>
-            <Button variant='contained' color='primary' onClick={handleReturn}>CHECKOUT</Button>
+            <Button variant='contained' color='primary' onClick={handleCheckout}>CHECKOUT</Button>
         </>
     )
 }
