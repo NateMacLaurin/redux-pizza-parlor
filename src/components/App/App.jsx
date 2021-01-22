@@ -43,7 +43,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
-        <h2 className='cartTotal'><ShoppingCart style={{marginRight: 5 }}/>Total: ${getCartTotal()}</h2>
+        <h2 className='cartTotal'><ShoppingCart style={{marginRight: 5 }}/>Total: ${price}</h2>
       </header>
       <nav><Link to="/pizza">pizza---</Link><Link to="/order">order---</Link><Link to="/checkout">checkout---</Link><Link to="/admin">admin</Link></nav>
       {/*<img src='images/pizza_photo.png' />
