@@ -50,7 +50,12 @@ function App() {
       <Route path="/" exact component={PizzaList} />
       <Route path="/pizza" component={PizzaList} />
       <Route path="/order" component={CustomerForm} />
-      <Route path="/checkout" component={Checkout} />
+      <Route path="/checkout">
+        <Checkout 
+          cart = {cart}
+          getCartTotal = {getCartTotal}
+        />
+      </Route>
       <Route path="/admin" component={Admin} />
     </div>
     </Router>
