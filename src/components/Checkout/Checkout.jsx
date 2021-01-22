@@ -4,9 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 
 const Checkout = () => {
-
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch();
     const history = useHistory();
     const handleReturn = () => {
         console.log(`Returning to Order Page 1:`);
@@ -31,6 +29,7 @@ const Checkout = () => {
         })
         .then((response) => {
             console.log('Order info submitted. Redirecting to main page.');
+            dispatch({type: 'CHECKOUT_TOTAL', payload: 0})
             history.push('/');
             dispatch({ type: 'CHECKOUT'})
         }).catch((err) => {

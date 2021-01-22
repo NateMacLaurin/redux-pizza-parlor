@@ -53,6 +53,8 @@ const totalReducer = (state = 0, action) => {
             return state - action.payload;
         case 'CHECKOUT':
             return 0;
+        case 'CHECKOUT_TOTAL':
+            return action.payload;
         default:
             return state;
     }
