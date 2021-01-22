@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+
 
 const Checkout = () => {
 
@@ -9,20 +10,20 @@ const Checkout = () => {
         history.push('/');
     }
 
-    
+
     // Remove when real data is set up.
     const pizzaOrder = useSelector(store => store.orderReducer)
-    
+
     const customer = useSelector(store => store.customerReducer)
-    
-    
+
+
 
     return (
         <>
             <h3>Welcome to Checkout Page</h3>
-            <button onClick={handleReturn}>FLEE YOU FOOLS</button>
+            <button onClick={handleReturn}>Return to Pizza!</button>
 
-        
+
             <div className="customerInfo">
                 <ul>
                     <li>{customer[0].name}</li>

@@ -1,14 +1,34 @@
 import {useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+
 
 function Admin (){
 
-    const orders = useSelector(store => store.adminReducer)
+    useEffect(() => getOrders(), [])
+
+    // const orders = (useSelector(store => store.adminReducer))
+    const [ orders, setOrders ] = useState('')
+    const getOrders = (event) => {
+        console.log('Getting orders');
+
+        axios.get('/api/order').then((result) => {
+            console.log(result.data);
+            setOrders(result.data)
+        })
+    }
+
     const history = useHistory();
     const handleReturn = () => {
         console.log(`Returning to Order Page 1:`);
         history.push('/');
     }
+
+    
+
+
+
     return(
         <>
         <table>
@@ -21,7 +41,7 @@ function Admin (){
                 </tr>
             </thead>
             <tbody>
-                {orders.map((order, i) => {
+                {/* {orders.map((order, i) => {
                     return (
                         <tr key={i}>
                             <td>{order.name}</td>
@@ -30,7 +50,7 @@ function Admin (){
                             <td>{order.cost}</td>
                         </tr>
                     )
-                })}
+                })} */}
             </tbody>
         </table>
         <button onClick={handleReturn}>FLEE YOU FOOLS</button>
