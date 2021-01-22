@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux'
 import Button from '@material-ui/core/Button'
+import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios';
 
 const Checkout = () => {
 
@@ -10,12 +11,30 @@ const Checkout = () => {
         history.push('/');
     }
 
-    
+
     // Remove when real data is set up.
     const pizzaOrder = useSelector(store => store.orderReducer)
-    
     const customer = useSelector(store => store.customerReducer)
-    
+    const total = useSelector(store => store.totalReducer)
+
+    const handleCheckout = () => {
+    axios.post('/api/order', {
+            customer_name: customer[0].name,
+            street_address: customer[0].address,
+            city: customer[0].city,
+            zip: customer[0].zip,
+            type: customer[0].type,
+            total: total,
+            pizzas: pizzaOrder
+        })
+        .then((response) => {
+            console.log('Order info submitted. Redirecting to main page.');
+            history.push('/');
+        }).catch((err) => {
+            alert((`ERROR on POST: ${err}`));
+            console.log(`ERROR on POST: ${err}`);
+        })
+    }
 
     return (
         <>

@@ -6,23 +6,26 @@ import PizzaList from '../PizzaList/PizzaList.jsx';
 import CustomerForm from '../CustomerForm/CustomerForm.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
 import Admin from '../Admin/Admin.jsx';
-import {useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import ShoppingCart from '@material-ui/icons/ShoppingCart'
 
 function App() {
 
+  //const [totalPrice, setTotalPrice] = useState(0);
+  
   const dispatch = useDispatch()
   const cart = useSelector(store => store.orderReducer)
+  const price = useSelector(store => store.totalReducer)
 
-  const getCartTotal = () => {
-    let totalPrice = 0;
+ /* const getCartTotal = () => {
+    let currentPrice = 0;
       for(let pizza of cart){
-        totalPrice += Number(pizza.price);
+        currentPrice += Number(pizza.price);
       }
-      console.log('TotalPrice:', totalPrice);
-    return totalPrice;
-  }
+      console.log('currentPrice:', currentPrice);
+    setTotalPrice(currentPrice);
+  }*/
 
   useEffect(() => getPizzas(), [])
 

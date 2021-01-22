@@ -12,6 +12,7 @@ function CustomerForm(params) {
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
     const [zip, setZip] = useState('')
+    const [type, setType] = useState('delivery')
 
 
 
@@ -25,12 +26,13 @@ function CustomerForm(params) {
                 name: name,
                 address: address,
                 city: city,
-                zip: zip
+                zip: zip,
+                type: type
             }
         }
 
         dispatch(action)
-        history.push('/checkout')
+        history.push('/checkout');
     }
 
     return (
@@ -38,7 +40,7 @@ function CustomerForm(params) {
             <form onSubmit={handleNext} className="customerForm">
 
                 <h3>Step 2: Customer Info</h3>
-                <select name="type" id="">
+                <select name="type" id="" onChange={(event) => setType(event.target.value)}>
                     <option value="delivery">Delivery</option>
                     <option value="pickUp">Pick-up</option>
                 </select>
