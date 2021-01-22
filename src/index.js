@@ -18,7 +18,7 @@ const pizzaReducer = (state = [], action) => {
 const customerReducer = (state = [], action) => {
     switch (action.type) {
         case 'CUSTOMER_INFO':
-            return [action.payload]
+            return [action.payload] // changed to only include the last info entered.
         default:
             return state;
     }
@@ -39,7 +39,7 @@ const orderReducer = (state = [], action) => {
         case 'CHECKOUT':
             return [];
         default:
-            return [];
+            return state; //changed from return [] because it emptied the array every time customer info was added.
     }
 }
 

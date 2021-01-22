@@ -11,8 +11,8 @@ const Checkout = () => {
 
     
     // Remove when real data is set up.
-    const pizzaOrder = useSelector(store => store.pizzaReducer)
-
+    const pizzaOrder = useSelector(store => store.orderReducer)
+    
     const customer = useSelector(store => store.customerReducer)
     
 
