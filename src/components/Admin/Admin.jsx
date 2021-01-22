@@ -1,14 +1,34 @@
 import {useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+
 
 function Admin (){
 
-    const orders = useSelector(store => store.adminReducer)
+    useEffect(() => getOrders(), [])
+
+    // const orders = (useSelector(store => store.adminReducer))
+    const [ orders, setOrders ] = useState([])
+    const getOrders = (event) => {
+        console.log('Getting orders');
+
+        axios.get('/api/order').then((result) => {
+            console.log(result.data);
+            setOrders(result.data)
+        })
+    }
+
     const history = useHistory();
     const handleReturn = () => {
         console.log(`Returning to Order Page 1:`);
         history.push('/');
     }
+
+    
+
+
+
     return(
         <>
         <table>
@@ -24,10 +44,10 @@ function Admin (){
                 {orders.map((order, i) => {
                     return (
                         <tr key={i}>
-                            <td>{order.name}</td>
-                            <td>{order.timePlaced}</td>
+                            <td>{order.customer_name}</td>
+                            <td>{order.time}</td>
                             <td>{order.type}</td>
-                            <td>{order.cost}</td>
+                            <td>{order.total}</td>
                         </tr>
                     )
                 })}

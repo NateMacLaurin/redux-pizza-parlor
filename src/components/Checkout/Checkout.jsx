@@ -10,7 +10,7 @@ const Checkout = () => {
         history.push('/');
     }
 
-    
+
     // Remove when real data is set up.
     const pizzaOrder = useSelector(store => store.orderReducer)
     const customer = useSelector(store => store.customerReducer)
@@ -40,7 +40,6 @@ const Checkout = () => {
             <h3>Welcome to Checkout Page</h3>
             <button onClick={handleCheckout}>Checkout!</button>
 
-        
             <div className="customerInfo">
                 <ul>
                     <li>{customer[0].name}</li>
