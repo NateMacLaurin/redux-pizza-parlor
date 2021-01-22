@@ -10,10 +10,10 @@ const Checkout = ({getCartTotal, cart}) => {
         history.push('/');
     }
 
-    
+
     // Remove when real data is set up.
     const pizzaOrder = useSelector(store => store.orderReducer)
-    
+
     const customer = useSelector(store => store.customerReducer)
 
     const handleCheckout = () => {
@@ -41,7 +41,6 @@ const Checkout = ({getCartTotal, cart}) => {
             <h3>Welcome to Checkout Page</h3>
             <button onClick={handleCheckout}>Checkout!</button>
 
-        
             <div className="customerInfo">
                 <ul>
                     <li>{customer[0].name}</li>
