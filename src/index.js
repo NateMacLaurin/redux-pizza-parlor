@@ -49,6 +49,8 @@ const totalReducer = (state = 0, action) => {
             return state + action.payload;
         case 'REM_TOTAL':
             return state - action.payload;
+        case 'CHECKOUT_TOTAL':
+            return action.payload;
         default:
             return state;
     }
