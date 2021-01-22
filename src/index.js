@@ -43,12 +43,24 @@ const orderReducer = (state = [], action) => {
     }
 }
 
+const totalReducer = (state = 0, action) => {
+    switch(action.type){
+        case 'ADD_TOTAL':
+            return state + action.payload;
+        case 'REM_TOTAL':
+            return state - action.payload;
+        default:
+            return state;
+    }
+}
+
 const reduxStore = createStore(
     combineReducers({
         pizzaReducer,
         customerReducer,
         adminReducer,
-        orderReducer
+        orderReducer,
+        totalReducer
     }),
     applyMiddleware(logger)
 );

@@ -9,9 +9,18 @@ const PizzaItem = ({pizza}) => {
 
     const toggleCartStatus = () => {
         if (!isAdded) {
-            dispatch({ type: 'ADD_TO_ORDER', payload: pizza})
+            dispatch({ type: 'ADD_TO_ORDER', payload: {
+                id: pizza.id,
+                name: pizza.name,
+                description: pizza.description,
+                price: pizza.price,
+                quantity: 1
+            }
+        })
+            dispatch({type: 'ADD_TOTAL', payload: Number(pizza.price)})
         } else if (isAdded) {
             dispatch({ type: 'REM_FROM_ORDER', payload: pizza})
+            dispatch({type: 'REM_TOTAL', payload: Number(pizza.price)})
         }
         setIsAdded(!isAdded)
     }

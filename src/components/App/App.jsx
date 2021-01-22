@@ -6,22 +6,25 @@ import PizzaList from '../PizzaList/PizzaList.jsx';
 import CustomerForm from '../CustomerForm/CustomerForm.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
 import Admin from '../Admin/Admin.jsx';
-import {useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 function App() {
 
+  //const [totalPrice, setTotalPrice] = useState(0);
+  
   const dispatch = useDispatch()
   const cart = useSelector(store => store.orderReducer)
+  const price = useSelector(store => store.totalReducer)
 
-  const getCartTotal = () => {
-    let totalPrice = 0;
+ /* const getCartTotal = () => {
+    let currentPrice = 0;
       for(let pizza of cart){
-        totalPrice += Number(pizza.price);
+        currentPrice += Number(pizza.price);
       }
-      console.log('TotalPrice:', totalPrice);
-    return totalPrice;
-  }
+      console.log('currentPrice:', currentPrice);
+    setTotalPrice(currentPrice);
+  }*/
 
   useEffect(() => getPizzas(), [])
 
@@ -42,7 +45,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
-        <div className='cartTotal'>${getCartTotal()}</div>
+        <div className='cartTotal'>${price}</div>
       </header>
       <nav><Link to="/pizza">pizza---</Link><Link to="/order">order---</Link><Link to="/checkout">checkout---</Link><Link to="/admin">admin</Link></nav>
       {/*<img src='images/pizza_photo.png' />
@@ -50,12 +53,7 @@ function App() {
       <Route path="/" exact component={PizzaList} />
       <Route path="/pizza" component={PizzaList} />
       <Route path="/order" component={CustomerForm} />
-      <Route path="/checkout">
-        <Checkout 
-          cart = {cart}
-          getCartTotal = {getCartTotal}
-        />
-      </Route>
+      <Route path="/checkout" component={Checkout} />
       <Route path="/admin" component={Admin} />
     </div>
     </Router>
