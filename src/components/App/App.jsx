@@ -8,6 +8,7 @@ import Checkout from '../Checkout/Checkout.jsx';
 import Admin from '../Admin/Admin.jsx';
 import {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import ShoppingCart from '@material-ui/icons/ShoppingCart'
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
-        <div className='cartTotal'>${price}</div>
+        <h2 className='cartTotal'><ShoppingCart style={{marginRight: 5 }}/>Total: ${price}</h2>
       </header>
       <nav><Link to="/pizza">pizza---</Link><Link to="/order">order---</Link><Link to="/checkout">checkout---</Link><Link to="/admin">admin</Link></nav>
       {/*<img src='images/pizza_photo.png' />

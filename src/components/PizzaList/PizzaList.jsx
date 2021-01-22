@@ -1,6 +1,8 @@
 import PizzaItem from '../PizzaItem/PizzaItem'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 const PizzaList = () => {
 
@@ -12,14 +14,17 @@ const PizzaList = () => {
         history.push('/order')
     }
 
-    return(
+    return (
         <>
-        <div className="pizzaList">
-            {pizzas.map((pizza) => (
-                <PizzaItem key={pizza.id} pizza={pizza}/>
-            ))}
-        </div>
-        <button onClick={handleNext}>NEXT</button>
+            <div className="pizzaList">
+                <Grid container spacing={3}>
+                    {pizzas.map((pizza) => (
+                        <PizzaItem key={pizza.id} pizza={pizza} />
+                    ))}
+                </Grid>
+            </div>
+
+            <Button variant='contained' color='primary' onClick={handleNext}>NEXT</Button>
         </>
     )
 }

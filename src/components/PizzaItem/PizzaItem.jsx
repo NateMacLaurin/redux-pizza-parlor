@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 
-const PizzaItem = ({pizza}) => {
+const PizzaItem = ({ pizza }) => {
 
     const dispatch = useDispatch()
     const [isAdded, setIsAdded] = useState(false)
@@ -26,19 +28,21 @@ const PizzaItem = ({pizza}) => {
     }
 
     return (
-        <div className="pizzaItemContainer">
-            <img src={pizza.image_path} alt={pizza.description}/>
-            <div className="descriptionContainer">
-                <h2>{pizza.name}</h2>
-                <p>{pizza.description}</p>
-                <p>{pizza.price}</p>
+        <Grid item xs={4}>
+            <div className="pizzaItemContainer">
+                <img src={pizza.image_path} alt={pizza.description} />
+                <div className="descriptionContainer">
+                    <h2>{pizza.name}</h2>
+                    <p>{pizza.description}</p>
+                    <p>{pizza.price}</p>
+                </div>
+                {isAdded ?
+                    <Button variant='outlined' color='secondary' onClick={toggleCartStatus}>REMOVE</Button> :
+                    <Button variant='outlined' color='secondary' onClick={toggleCartStatus}>ADD</Button>}
+
+
             </div>
-            {isAdded ? 
-                <button onClick={toggleCartStatus}>REMOVE</button> : 
-                <button onClick={toggleCartStatus}>ADD</button>}
-            
-            
-        </div>
+        </Grid>
     )
 }
 

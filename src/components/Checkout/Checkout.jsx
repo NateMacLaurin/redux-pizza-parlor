@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 
@@ -30,6 +31,7 @@ const Checkout = () => {
             console.log('Order info submitted. Redirecting to main page.');
             dispatch({type: 'CHECKOUT_TOTAL', payload: 0})
             history.push('/');
+            dispatch({ type: 'CHECKOUT'})
         }).catch((err) => {
             alert((`ERROR on POST: ${err}`));
             console.log(`ERROR on POST: ${err}`);
@@ -39,8 +41,7 @@ const Checkout = () => {
     return (
         <>
             <h3>Welcome to Checkout Page</h3>
-            <button onClick={handleCheckout}>Checkout!</button>
-
+        
             <div className="customerInfo">
                 <ul>
                     <li>{customer[0].name}</li>
@@ -61,6 +62,7 @@ const Checkout = () => {
                         <tr key={pizza.id}><td>{pizza.name}</td><td>{pizza.price}</td></tr>)}
                 </tbody>
             </table>
+            <Button variant='contained' color='primary' onClick={handleCheckout}>CHECKOUT</Button>
         </>
     )
 }

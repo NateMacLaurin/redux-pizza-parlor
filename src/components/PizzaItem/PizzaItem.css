@@ -1,0 +1,23 @@
+/* .pizzaItem {
+    height: 100%;
+    width: 300px;
+    margin: 10px;
+}
+
+
+img {
+    width: 300px;
+} */
+
+.descriptionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+}
+
+Button {
+    position: relative;
+    left: 80%;
+}

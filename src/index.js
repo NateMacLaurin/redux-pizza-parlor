@@ -19,6 +19,8 @@ const customerReducer = (state = [], action) => {
     switch (action.type) {
         case 'CUSTOMER_INFO':
             return [action.payload] // changed to only include the last info entered.
+        case 'CHECKOUT':
+            return [] // changed to only include the last info entered.
         default:
             return state;
     }
@@ -49,6 +51,8 @@ const totalReducer = (state = 0, action) => {
             return state + action.payload;
         case 'REM_TOTAL':
             return state - action.payload;
+        case 'CHECKOUT':
+            return 0;
         case 'CHECKOUT_TOTAL':
             return action.payload;
         default:
